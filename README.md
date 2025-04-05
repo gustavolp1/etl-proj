@@ -44,7 +44,7 @@ dune build
 From the `ETL` folder, run:
 
 ```bash
-dune exec ./bin/main.exe
+dune exec ETL
 ```
 
 This will read from `data/order.csv` and `data/order_item.csv`, generating `data/order_totals.csv`.
