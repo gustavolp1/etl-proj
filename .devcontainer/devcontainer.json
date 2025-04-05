@@ -1,0 +1,16 @@
+{
+  "name": "OCaml DevContainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "editor.formatOnSave": true
+  },
+  "extensions": [
+    "ocamllabs.ocaml-platform",
+    "gitlens.gitlens"
+  ],
+  "forwardPorts": [],
+  "postCreateCommand": "opam install -y dune csv sqlite3 ocaml-lsp-server ocamlformat user-setup",
+  "remoteUser": "opam"
+}
