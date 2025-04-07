@@ -69,20 +69,6 @@ The goal is simplicity and maintainability while still showcasing functional com
 
 ---
 
-### 7. Documentation
-
-- Inline docstrings were added to all major functions.
-- `odoc` can be used to generate browsable HTML documentation:
-  ```bash
-  dune build @doc
-  ```
-- Output is located at:
-  ```
-  _build/default/_doc/_html/index.html
-  ```
-
----
-
 ## Use of Generative AI
 
 Generative AI tools were used to assist with debugging and structuring code, and generating README and project report templates. Nonetheless, all content has been reviewed by the author for accuracy and performance guarantee.
