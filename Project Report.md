@@ -9,8 +9,11 @@ This report outlines the development of a functional ETL (Extract, Transform, Lo
 ## Project Structure
 
 - **main.ml**: Manages the ETL process.
-- **TransformUtils.ml**: Performs transformation and aggregation logic.
-- **CsvIO.ml**: Contains the functions for reading from and writing to CSV files (impure functions).
+- **OrderTypes.ml**: Contains all type definitions.
+- **OrderParser.ml**: Handles parsing logic.
+- **OrderCalculations.ml**: Manages aggregation logic.
+- **TransformUtils.ml**: Acts as a facade module re-exporting functionality.
+- **CsvIO.ml**: Contains I/O operations for CSV files.
 - **TestTransformUtils.ml**: Attempts unit tests.
 
 ---
@@ -26,15 +29,22 @@ These types are defined to match the CSV schema and are used throughout the tran
 
 ---
 
-### 3. Data Transformation (TransformUtils.ml)
+### 3. Data Transformation
 
-- Implemented pure functions for:
-  - Parsing CSV records into typed data structures.
-  - Filtering by `status` and `origin`.
-  - Aggregating item data by `order_id` using `map`, `reduce`, and `filter`.
-- Data is grouped by `order_id`, and each group’s total amount and taxes are computed.
+#### OrderParser.ml
+- Pure functions for parsing CSV records into typed data structures
+- Separate validation logic for order and order item records
 
-> Functional principles such as **immutability**, **referential transparency**, and **function composition** were maintained throughout.
+#### OrderCalculations.ml
+- Pure functions for business logic:
+  - Filtering operations
+  - Aggregating item data by `order_id`
+  - Computing totals using `map`, `reduce`, and `filter`
+- Maintains functional principles: **immutability**, **referential transparency**
+
+#### TransformUtils.ml
+- Re-exports functionality from other modules
+- Maintains backward compatibility
 
 ---
 
@@ -82,6 +92,5 @@ Generative AI tools were used to assist with debugging and structuring code, and
 | Modularity and separation of concerns        | ✅ Complete |
 | Use of `map`, `filter`, and `reduce`         | ✅ Complete |
 | Clear test coverage with OUnit2              | ✅ Complete |
-| Randomized CSV input and consistent output   | ✅ Complete |
 | Error handling and extensibility             | ✅ Basic    |
 

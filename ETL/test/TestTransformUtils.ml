@@ -1,5 +1,6 @@
 open OUnit2
 open ETL.TransformUtils
+open ETL.OrderTypes
 
 (* Tests *)
 let test_parse_order _ =
